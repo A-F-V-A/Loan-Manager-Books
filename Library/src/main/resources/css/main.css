@@ -1,0 +1,164 @@
+/* General style table */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-radius: 3px;
+    -fx-border-width: 0.5px;
+    -fx-border-color: #bebebe;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: transparent;
+    -fx-background-radius: 3px 3px 0px 0px;
+    -fx-border-width: 0 0 0.5px 0;
+    -fx-border-color: #bebebe;
+    -fx-padding: 2px;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-row-cell{
+    -fx-cursor: hand;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+.table-row-cell:odd{
+    -fx-border-color: #eaeaea;
+}
+.table-row-cell:even{
+    -fx-background-color: transparent;
+}
+
+.table-row-cell:hover{
+    -fx-background-color: #eaeaea;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #2d8ff8;
+    -fx-text-fill: white; /* Cambia el color del texto cuando se selecciona */
+}
+
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  #bebebe;
+}
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  #bebebe;
+}
+
+.btn {
+    -fx-background-color: #2F4858;
+}
+
+.btn:hover {
+    -fx-background-color: rgba(51, 79, 98, 0.89);
+}
+
+.custom-vbox {
+    -fx-padding: 5px; /* Espaciado interno */
+}
+
+.custom-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333; /* Color del texto */
+    -fx-padding: 5 0 5 0; /* Espaciado (arriba, derecha, abajo, izquierda) */
+}
+
+.custom-text-field {
+    -fx-pref-width: 500px;
+    -fx-pref-height: 30; /* Altura preferida */
+    -fx-font-size: 14px;
+    -fx-background-color: #f4f4f4; /* Color de fondo */
+    -fx-text-fill: #333333; /* Color del texto */
+    -fx-border-color: #cccccc; /* Color del borde */
+    -fx-border-radius: 5; /* Radio de borde */
+    -fx-padding: 5; /* Espaciado interno */
+}
+
+.custom-date-picker {
+    -fx-font-size: 14px;
+    -fx-pref-width: 500px;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5px;
+}
+
+.custom-date-picker .arrow-button {
+    -fx-background-color: #ffffff;
+}
+
+.custom-date-picker .arrow-button:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+.custom-date-picker .day-cell {
+    -fx-background-color: #ffffff;
+}
+
+.custom-date-picker .day-cell:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+.custom-date-picker .date-label {
+    -fx-text-fill: #333;
+}
+
+.custom-date-picker .month-year-pane {
+    -fx-background-color: #ffffff;
+}
+
+/* styles.css */
+.btn-crud {
+    -fx-background-color: #4CAF50; /* Color de fondo */
+    -fx-text-fill: white; /* Color del texto */
+    -fx-font-size: 14px; /* Tamaño de fuente */
+    -fx-pref-width: 100px; /* Ancho preferido */
+    -fx-pref-height: 30px; /* Altura preferida */
+    -fx-background-radius: 5px; /* Radio de borde */
+    -fx-cursor: hand;
+}
+
+.btn-crud-update{
+    -fx-background-color: #007bff; /* Color de fondo */
+}
+
+.btn-crud-delete{
+    -fx-background-color: #dc3545; /* Color de fondo */
+}
+
+.btn-crud:hover {
+    -fx-background-color: #45a049; /* Color de fondo al pasar el mouse */
+}
+
+.btn-crud-update:hover {
+    -fx-background-color: #00a6ff; /* Color de fondo al pasar el mouse */
+}
+
+.btn-crud-delete:hover {
+    -fx-background-color: #e83a4b; /* Color de fondo */
+}

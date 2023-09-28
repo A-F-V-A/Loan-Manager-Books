@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="570.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.est.library.infrastructure.javafx.controllers.LibraryController">
+   <children>
+      <VBox fx:id="menu" layoutY="-3.0" prefHeight="570.0" prefWidth="240.0" style="-fx-background-color: #2F4858;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#AddClientView" prefHeight="46.0" prefWidth="240.0" styleClass="btn" text="Agregar Estudiante" VBox.vgrow="ALWAYS">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/adduser.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="254.0" styleClass="btn" text="Visualizar Libros" textAlignment="JUSTIFY" VBox.vgrow="ALWAYS">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
+                     <image>
+                        <Image url="@../img/books.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="B_menu_add_book" alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#AddBookView" prefHeight="43.0" prefWidth="240.0" styleClass="btn" text="Agregar Libro" VBox.vgrow="ALWAYS">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/tableview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </VBox>
+      <HBox layoutX="248.0" layoutY="19.0" prefHeight="44.0" prefWidth="634.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Label fx:id="L_title_view" prefHeight="44.0" prefWidth="148.0" text="Title View">
+               <font>
+                  <Font name="Calibri" size="24.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="44.0" prefWidth="289.0" />
+            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="252.0">
+               <children>
+                  <Button fx:id="B_add" mnemonicParsing="false" onAction="#AddRegister" prefHeight="23.0" prefWidth="90.0" styleClass="btn-crud" text="Create" />
+                  <Button fx:id="B_update" mnemonicParsing="false" onAction="#Update" prefHeight="23.0" prefWidth="90.0" text="Update">
+                     <HBox.margin>
+                        <Insets left="4.0" />
+                     </HBox.margin>
+                     <styleClass>
+                        <String fx:value="btn-crud" />
+                        <String fx:value="btn-crud-update" />
+                     </styleClass>
+                  </Button>
+                  <Button fx:id="B_deleted" mnemonicParsing="false" onAction="#Delete" prefHeight="23.0" prefWidth="90.0" text="Delete">
+                     <HBox.margin>
+                        <Insets left="4.0" />
+                     </HBox.margin>
+                     <styleClass>
+                        <String fx:value="btn-crud" />
+                        <String fx:value="btn-crud-delete" />
+                     </styleClass>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <VBox fx:id="container_inputs" layoutX="248.0" layoutY="63.0" prefHeight="88.0" prefWidth="634.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="10.0" />
+      <AnchorPane fx:id="container_table" layoutX="250.0" layoutY="356.0" prefHeight="287.0" prefWidth="678.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0" />
+   </children>
+</AnchorPane>
