@@ -12,11 +12,13 @@ public class Library  {
 
     public Library(){
         Books = new HashSet<Book>();
+        Students = new TreeSet<Student>();
     }
     public HashSet<Book> getBooks() {
         return Books;
     }
-    public void addBook(Book newBook){
-        Books.add(newBook);
+
+    public TreeSet<Student> getStudents() {
+        return Students;
     }
 }

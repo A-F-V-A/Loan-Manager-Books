@@ -1,9 +1,11 @@
 package edu.est.library.domain.models;
 
-public class Student  implements  Comparable<Student>{
+public class Student implements Comparable<Student> {
     private String firstName;
     private String lastName;
     private int studentId;
+
+    public Student(){}
 
     public Student(String firstName, String lastName, int studentId) {
         this.firstName = firstName;
@@ -35,10 +37,22 @@ public class Student  implements  Comparable<Student>{
         this.studentId = studentId;
     }
 
-    @Override
-    public int compareTo(Student otherStudent) {
-        return Integer.compare(this.studentId, otherStudent.getStudentId());
+    public boolean isIncomplete(){
+        return  firstName == null || firstName.isEmpty() ||
+                lastName == null || lastName.isEmpty() ||
+                studentId == 0;
+
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Student otherStudent = (Student) obj;
+        return studentId == otherStudent.getStudentId();
+    }
+
 
     @Override
     public String toString() {
@@ -48,4 +62,23 @@ public class Student  implements  Comparable<Student>{
                 ", studentId=" + studentId +
                 '}';
     }
+
+    @Override
+    public int compareTo(Student otherStudent) {
+        int lastNameComparison = this.lastName.compareTo(otherStudent.lastName);
+
+        if (lastNameComparison != 0) {
+            return lastNameComparison;
+        } else {
+            int firstNameComparison = this.firstName.compareTo(otherStudent.firstName);
+
+            if (firstNameComparison != 0) {
+                return firstNameComparison;
+            } else {
+                return Integer.compare(this.studentId, otherStudent.studentId);
+            }
+        }
+    }
+
+
 }

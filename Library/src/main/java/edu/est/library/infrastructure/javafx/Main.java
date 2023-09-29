@@ -1,6 +1,5 @@
 package edu.est.library.infrastructure.javafx;
 
-import edu.est.library.infrastructure.db.LibraryDB;
 import edu.est.library.infrastructure.javafx.controllers.LibraryController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

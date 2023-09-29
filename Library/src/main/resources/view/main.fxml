@@ -17,7 +17,7 @@
    <children>
       <VBox fx:id="menu" layoutY="-3.0" prefHeight="570.0" prefWidth="240.0" style="-fx-background-color: #2F4858;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#AddClientView" prefHeight="46.0" prefWidth="240.0" styleClass="btn" text="Agregar Estudiante" VBox.vgrow="ALWAYS">
+            <Button alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#AddClientView" prefHeight="28.0" prefWidth="240.0" styleClass="btn" text="Agregar Estudiante" VBox.vgrow="ALWAYS">
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -32,7 +32,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="254.0" styleClass="btn" text="Visualizar Libros" textAlignment="JUSTIFY" VBox.vgrow="ALWAYS">
+            <Button alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#AddEmployee" prefHeight="28.0" prefWidth="240.0" styleClass="btn" text="Agregar Empleado" textAlignment="JUSTIFY" VBox.vgrow="ALWAYS">
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="16.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
                      <image>
@@ -47,7 +47,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="B_menu_add_book" alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#AddBookView" prefHeight="43.0" prefWidth="240.0" styleClass="btn" text="Agregar Libro" VBox.vgrow="ALWAYS">
+            <Button fx:id="B_menu_add_book" alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#AddBookView" prefHeight="26.0" prefWidth="240.0" styleClass="btn" text="Agregar Libro" VBox.vgrow="ALWAYS">
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>

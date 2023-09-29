@@ -103,6 +103,7 @@ public class ViewBook implements IEventTableView<Book> {
 
             if(book.isIncomplete()) throw new Exception("Error Book incomplete");
             bookList.add(Create(book));
+            Clean(element);
         } catch (Exception e) {
             System.err.println(e);
             Components.AlertLibrary(
@@ -155,6 +156,8 @@ public class ViewBook implements IEventTableView<Book> {
                 bookList.clear();
                 bookList.addAll(service.HashSetToList());
                 previousState = null;
+                seletecBook = null;
+                Clean(element);
             }
         } catch (Exception e) {
             System.err.println(e);
@@ -249,4 +252,27 @@ public class ViewBook implements IEventTableView<Book> {
         });
     }
 
+    private void Clean(VBox element){
+        HBox container = null;
+        for (Node node : element.getChildren()) {
+            if(node instanceof HBox) {
+                container = (HBox) node;
+                break;
+            }
+        }
+
+        if (container == null) return;
+
+        for (Node node : container.getChildren()) {
+            if(node instanceof VBox parent){
+                for (Node child : parent.getChildren()){
+                    if(child instanceof TextField value) {
+                        value.setText("");
+                    } else if (child instanceof DatePicker value) {
+                        value.setValue(null);
+                    }
+                }
+            }
+        }
+    }
 }
