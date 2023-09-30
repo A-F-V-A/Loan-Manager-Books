@@ -2,20 +2,18 @@ package edu.est.library.domain.models;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.TreeSet;
 
 public class LoanBook {
     private Student LoanStudent;
     private Date LoanDate;
-    private HashMap<Integer, BookLoanDetail> BookLoanDetails;
+    private HashMap<LoanBook, TreeSet<BookLoanDetail>> BookLoanDetails;
 
     public LoanBook(Student student, Date loanDate){
         LoanStudent = student;
         LoanDate = loanDate;
-        BookLoanDetails = new HashMap<Integer, BookLoanDetail>();
+        BookLoanDetails = new HashMap<LoanBook, TreeSet<BookLoanDetail>>();
     }
 
-    public void AddBookLoanDetail(int id,BookLoanDetail detail){
-        BookLoanDetails.put(id,detail);
-    }
 
 }

@@ -15,13 +15,13 @@
 
 <AnchorPane prefHeight="570.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.est.library.infrastructure.javafx.controllers.LibraryController">
    <children>
-      <VBox fx:id="menu" layoutY="-3.0" prefHeight="570.0" prefWidth="240.0" style="-fx-background-color: #2F4858;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox fx:id="menu" layoutY="-3.0" prefHeight="570.0" prefWidth="240.0" style="-fx-background-color: #0a1c34;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#AddClientView" prefHeight="28.0" prefWidth="240.0" styleClass="btn" text="Agregar Estudiante" VBox.vgrow="ALWAYS">
+            <Button alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#AddClientView" prefHeight="28.0" prefWidth="240.0" styleClass="btn" text="Add Student" VBox.vgrow="ALWAYS">
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/adduser.png" />
+                        <Image url="@../img/estudiante.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -32,11 +32,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#AddEmployee" prefHeight="28.0" prefWidth="240.0" styleClass="btn" text="Agregar Empleado" textAlignment="JUSTIFY" VBox.vgrow="ALWAYS">
+            <Button alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#AddEmployee" prefHeight="28.0" prefWidth="240.0" styleClass="btn" text="Add Employee" textAlignment="JUSTIFY" VBox.vgrow="ALWAYS">
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="16.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
                      <image>
-                        <Image url="@../img/books.png" />
+                        <Image url="@../img/employees.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -47,11 +47,26 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="B_menu_add_book" alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#AddBookView" prefHeight="26.0" prefWidth="240.0" styleClass="btn" text="Agregar Libro" VBox.vgrow="ALWAYS">
+            <Button fx:id="B_menu_add_book" alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#AddBookView" prefHeight="26.0" prefWidth="240.0" styleClass="btn" text="Add Book" VBox.vgrow="ALWAYS">
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/tableview.png" />
+                        <Image url="@../img/libro-abierto.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="B_menu_add_book1" alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#LoanManagement" prefHeight="26.0" prefWidth="240.0" styleClass="btn" text="Loan Management">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/archivo.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -66,7 +81,7 @@
       </VBox>
       <HBox layoutX="248.0" layoutY="19.0" prefHeight="44.0" prefWidth="634.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
-            <Label fx:id="L_title_view" prefHeight="44.0" prefWidth="148.0" text="Title View">
+            <Label fx:id="L_title_view" prefHeight="44.0" prefWidth="224.0" text="Book Management">
                <font>
                   <Font name="Calibri" size="24.0" />
                </font>

@@ -13,12 +13,18 @@ public class Library  {
     public Library(){
         Books = new HashSet<Book>();
         Students = new TreeSet<Student>();
+        Librarians = new HashSet<Librarian>();
     }
     public HashSet<Book> getBooks() {
         return Books;
     }
-
     public TreeSet<Student> getStudents() {
         return Students;
+    }
+    public HashSet<Librarian> getLibrarians() {
+        return Librarians;
+    }
+    public HashMap<Integer, LoanBook> getLoanBooks() {
+        return LoanBooks;
     }
 }

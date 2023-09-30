@@ -3,6 +3,7 @@ package edu.est.library.infrastructure.javafx.controllers;
 import edu.est.library.domain.models.Book;
 import edu.est.library.infrastructure.db.LibraryDB;
 import edu.est.library.infrastructure.javafx.components.ViewBook;
+import edu.est.library.infrastructure.javafx.components.ViewLibraian;
 import edu.est.library.infrastructure.javafx.components.ViewStudent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +22,8 @@ public class LibraryController implements Initializable {
     private final LibraryDB library = new LibraryDB();
     private ViewBook viewBook;
     private ViewStudent viewStudent;
+    private  ViewLibraian viewLibraian;
+
     private String CurrentView;
     @FXML
     public Button B_add;
@@ -39,6 +42,7 @@ public class LibraryController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         viewBook = new ViewBook(library.getBooks());
         viewStudent = new ViewStudent(library.getStudent());
+        viewLibraian = new ViewLibraian(library.getLibrarian());
     }
 
     /** Menu **/
@@ -62,10 +66,19 @@ public class LibraryController implements Initializable {
     @FXML
     public void AddEmployee(ActionEvent event){
         CleanView();
-        //container_inputs.getChildren().add(ViewStudent.containerInputs());
-        //container_table.getChildren().add(viewStudent.TableViewStudent());
+        container_inputs.getChildren().add(ViewLibraian.containerInputs());
+        container_table.getChildren().add(viewLibraian.TableViewLibrarian());
         L_title_view.setText("Add Employee");
         CurrentView = "AddEmployee";
+    }
+
+    @FXML
+    public void LoanManagement(ActionEvent event){
+        CleanView();
+       // container_inputs.getChildren().add(ViewLibraian.containerInputs());
+       // container_table.getChildren().add(viewLibraian.TableViewLibrarian());
+        L_title_view.setText("Loan Management");
+        CurrentView = "LoanManagement";
     }
 
     /** Crud logic **/
@@ -73,7 +86,7 @@ public class LibraryController implements Initializable {
     public void AddRegister(ActionEvent event){
         if(CurrentView.equals("AddClientView")) viewStudent.Addstudent(container_inputs);
         else if(CurrentView.equals("AddBookView")) viewBook.AddBook(container_inputs);
-        else if(CurrentView.equals("AddEmployee")) System.out.println("AddEmployee");
+        else if(CurrentView.equals("AddEmployee")) viewLibraian.AddLibrarian(container_inputs);
     }
 
     @FXML
@@ -83,7 +96,7 @@ public class LibraryController implements Initializable {
 
         if(CurrentView.equals("AddClientView")) viewStudent.Update(container_inputs,flag);
         else if(CurrentView.equals("AddBookView"))  viewBook.Update(container_inputs,flag);
-        else if(CurrentView.equals("AddEmployee")) System.out.println("AddEmployee Update");
+        else if(CurrentView.equals("AddEmployee")) viewLibraian.Update(container_inputs,flag);
 
         if(!flag) btn.getStyleClass().add("UpdateView");
         else btn.getStyleClass().remove("UpdateView");
@@ -93,7 +106,7 @@ public class LibraryController implements Initializable {
     public void Delete(ActionEvent event){
         if(CurrentView.equals("AddClientView")) viewStudent.Delete();
         else if(CurrentView.equals("AddBookView")) viewBook.Delete();
-        else if(CurrentView.equals("AddEmployee")) System.out.println("AddEmployee Delete");
+        else if(CurrentView.equals("AddEmployee")) viewLibraian.Delete();
     }
 
 

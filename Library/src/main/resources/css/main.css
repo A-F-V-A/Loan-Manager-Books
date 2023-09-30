@@ -63,6 +63,8 @@
     -fx-padding: 2;
 }
 
+
+
 .table-view .virtual-flow .scroll-bar:vertical .thumb{
     -fx-background-color:  #bebebe;
 }
@@ -71,7 +73,8 @@
 }
 
 .btn {
-    -fx-background-color: #2F4858;
+    -fx-background-color: #0a1c34;
+    -fx-text-fill: white;
 }
 
 .btn:hover {
