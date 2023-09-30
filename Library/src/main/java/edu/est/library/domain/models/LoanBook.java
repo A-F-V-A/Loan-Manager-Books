@@ -23,6 +23,46 @@ public class LoanBook {
         );
     }
 
+    public String getId() {
+        return id.toString();
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public Student getLoanStudent() {
+        return LoanStudent;
+    }
+
+    public void setLoanStudent(Student loanStudent) {
+        LoanStudent = loanStudent;
+    }
+
+    public Librarian getLoanLibrarian() {
+        return LoanLibrarian;
+    }
+
+    public void setLoanLibrarian(Librarian loanLibrarian) {
+        LoanLibrarian = loanLibrarian;
+    }
+
+    public Date getLoanDate() {
+        return LoanDate;
+    }
+
+    public void setLoanDate(Date loanDate) {
+        LoanDate = loanDate;
+    }
+
+    public HashMap<LoanBook, TreeSet<BookLoanDetail>> getBookLoanDetails() {
+        return BookLoanDetails;
+    }
+
+    public void setBookLoanDetails(HashMap<LoanBook, TreeSet<BookLoanDetail>> bookLoanDetails) {
+        BookLoanDetails = bookLoanDetails;
+    }
+
     private void generateID(String... value){
         StringBuilder keys = new StringBuilder();
         for (String val: value) keys.append(val);

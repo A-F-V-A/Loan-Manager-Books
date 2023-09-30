@@ -8,7 +8,7 @@ public class Library  {
     private HashSet<Book> Books;
     private TreeSet<Student> Students;
     private HashSet<Librarian> Librarians;
-    private HashMap<Integer, LoanBook> LoanBooks;
+    private HashMap<String, LoanBook> LoanBooks;
 
     public Library(){
         Books = new HashSet<Book>();
@@ -24,7 +24,7 @@ public class Library  {
     public HashSet<Librarian> getLibrarians() {
         return Librarians;
     }
-    public HashMap<Integer, LoanBook> getLoanBooks() {
+    public HashMap<String, LoanBook> getLoanBooks() {
         return LoanBooks;
     }
 }

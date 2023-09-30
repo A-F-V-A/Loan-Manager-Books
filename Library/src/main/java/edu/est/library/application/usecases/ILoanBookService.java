@@ -1,6 +1,6 @@
 package edu.est.library.application.usecases;
 
-import edu.est.library.domain.interfaces.repository.ICrud;
+import edu.est.library.domain.interfaces.repository.ICrudLoanBook;
 
-public interface ILoanBookService<Entity> extends ICrud<Entity> {
+public interface ILoanBookService<Entity> extends ICrudLoanBook<Entity> {
 }
