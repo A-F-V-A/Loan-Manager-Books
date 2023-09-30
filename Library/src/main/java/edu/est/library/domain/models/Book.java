@@ -71,6 +71,12 @@ public class Book {
                 PublicationDate == null;
     }
 
+    public int Quantity(int value){
+        if(value > Quantity || Quantity == 0) return -1;
+        Quantity = Quantity - value;
+        return Quantity;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -91,10 +97,12 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book: {" +
-                "Title:'" + Title + '\'' +
-                ", Author:'" + Author + '\'' +
-                ", PublicationDate:" + PublicationDate +
+        return "Book{" +
+                "Title='" + Title + '\'' +
+                ", Author='" + Author + '\'' +
+                ", Isbn='" + Isbn + '\'' +
+                ", PublicationDate=" + PublicationDate +
+                ", Quantity=" + Quantity +
                 '}';
     }
 }

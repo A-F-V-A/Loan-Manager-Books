@@ -74,4 +74,14 @@ public class Librarian {
 
         return identification.equals(otherLibrarian.identification);
     }
+
+    @Override
+    public String toString() {
+        return "Librarian{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", identification='" + identification + '\'' +
+                ", startDate=" + startDate +
+                '}';
+    }
 }

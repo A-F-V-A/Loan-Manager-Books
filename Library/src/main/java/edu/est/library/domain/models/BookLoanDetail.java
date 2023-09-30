@@ -1,34 +1,46 @@
 package edu.est.library.domain.models;
 
-import java.security.PublicKey;
-import java.util.Objects;
+import edu.est.library.domain.dto.BookLoanDetailDto;
+import edu.est.library.domain.dto.LoanBookDto;
 
-public class BookLoanDetail {
+import java.security.PublicKey;
+import java.util.Date;
+import java.util.Objects;
+import java.util.concurrent.RecursiveTask;
+
+public class BookLoanDetail implements  Comparable<BookLoanDetail> {
     private Book DetailBook;
+    private Date Loandate;
     private String DetailComment;
-    public BookLoanDetail(Book book){
+    public BookLoanDetail(){}
+    public BookLoanDetail(Book book, Date date, String comment){
         DetailBook = book;
-    }
-    public  BookLoanDetail(Book book, String comment){
-        this(book);
+        Loandate = date;
         DetailComment = comment;
-    }
-    public String getDetailComment() {
-        return DetailComment;
-    }
-    public void setDetailComment(String detailComment) {
-        DetailComment = detailComment;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof BookLoanDetail that)) return false;
-        return Objects.equals(DetailBook, that.DetailBook) && Objects.equals(DetailComment, that.DetailComment);
+
+        if(!that.DetailBook.equals(DetailBook)) return false;
+        if(that.Loandate != Loandate) return false;
+
+        return that.DetailComment.equals(DetailComment);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(DetailBook, DetailComment);
+    public int compareTo(BookLoanDetail o) {
+        return 0;
     }
+    public BookLoanDetailDto viewData(){
+        BookLoanDetailDto view = new BookLoanDetailDto();
+        view.isbn = DetailBook.getIsbn();
+        view.bookTitle = DetailBook.getTitle();
+        view.comment = DetailComment;
+        view.date = Loandate;
+        return view;
+    }
+
 }
