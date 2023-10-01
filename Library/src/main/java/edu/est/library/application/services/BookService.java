@@ -2,17 +2,19 @@ package edu.est.library.application.services;
 
 import edu.est.library.application.usecases.IBookService;
 import edu.est.library.domain.interfaces.repository.ICrud;
+import edu.est.library.domain.interfaces.repository.ICrudBook;
 import edu.est.library.domain.models.Book;
 import edu.est.library.domain.models.Library;
 
+import javax.swing.text.html.parser.Entity;
 import java.util.HashSet;
 import java.util.List;
 
 public class BookService implements IBookService<Book> {
 
-    private final ICrud<Book> service;
+    private final ICrudBook<Book> service;
 
-    public BookService(ICrud<Book> service){
+    public BookService(ICrudBook<Book> service){
         this.service = service;
     }
 
@@ -43,5 +45,10 @@ public class BookService implements IBookService<Book> {
         if(book == null) throw new Exception("Book null");
         if(entityNew == null) throw new Exception("Update book null");
         return service.Update(book,entityNew);
+    }
+
+    @Override
+    public int lendBook(Book book) throws Exception {
+        return service.lendBook(book);
     }
 }

@@ -92,8 +92,15 @@
     -fx-padding: 5 0 5 0; /* Espaciado (arriba, derecha, abajo, izquierda) */
 }
 
+.custom-label-selection{
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #b2b2b2; /* Color del texto */
+    -fx-padding: 5 0 5 0; /* Espaciado (arriba, derecha, abajo, izquierda) */
+}
+
 .custom-text-field {
-    -fx-pref-width: 500px;
+    -fx-pref-width: 250px;
     -fx-pref-height: 30; /* Altura preferida */
     -fx-font-size: 14px;
     -fx-background-color: #f4f4f4; /* Color de fondo */
@@ -105,7 +112,7 @@
 
 .custom-date-picker {
     -fx-font-size: 14px;
-    -fx-pref-width: 500px;
+    -fx-pref-width: 250px;
     -fx-background-color: #ffffff;
     -fx-border-color: #ccc;
     -fx-border-radius: 5px;
@@ -136,6 +143,17 @@
 }
 
 /* styles.css */
+
+/* styles.css */
+.btn-select {
+    -fx-background-color: #9f9f9f; /* Color de fondo */
+    -fx-text-fill: white; /* Color del texto */
+    -fx-font-size: 14px; /* Tamaño de fuente */
+    -fx-pref-width: 100px; /* Ancho preferido */
+    -fx-pref-height: 30px; /* Altura preferida */
+    -fx-background-radius: 5px; /* Radio de borde */
+    -fx-cursor: hand;
+}
 .btn-crud {
     -fx-background-color: #4CAF50; /* Color de fondo */
     -fx-text-fill: white; /* Color del texto */
@@ -165,3 +183,26 @@
 .btn-crud-delete:hover {
     -fx-background-color: #e83a4b; /* Color de fondo */
 }
+
+.btn-crud-detail {
+    -fx-background-color: #17a2b8; /* Color de fondo */
+}
+
+.btn-crud-detail:hover {
+    -fx-background-color: #1aabc2; /* Color de fondo */
+}
+
+.cancel-button {
+    -fx-background-color: #e83a4b; /* Color rojo en hexadecimal */
+    -fx-text-fill: #FFFFFF; /* Color del texto (blanco) */
+    -fx-font-size: 10; /* Tamaño de la fuente */
+    -fx-pref-width: 10; /* Ancho preferido (más pequeño) */
+    -fx-pref-height: 10; /* Alto preferido (más pequeño) */
+    -fx-background-radius: 1000; /* Hace que el fondo sea redondo */
+    -fx-cursor: hand;
+}
+
+.cancel-button:hover{
+    -fx-background-color: #f15867; /* Color rojo en hexadecimal */
+}
+

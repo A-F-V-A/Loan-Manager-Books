@@ -66,6 +66,7 @@ public class ViewStudent implements IEventTableView<Student> {
         AnchorPane.setBottomAnchor(tableView, 0.0);
 
         EventTableView(tableView);
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         return tableView;
     }
     public void Addstudent(VBox element){

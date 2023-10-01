@@ -25,13 +25,19 @@ public class LoanBookDb implements ICrudLoanBook<LoanBook> {
 
     @Override
     public LoanBook Deleted(LoanBook loanBook) throws Exception {
-        if(loanBooks.containsKey(loanBook.getId())) throw new Exception("The detail you are trying to delete does not exist");
-        return loanBooks.remove(loanBook.getId());
+        if(!loanBooks.containsKey(loanBook.getId())) throw new Exception("The detail you are trying to delete does not exist");
+        loanBooks.remove(loanBook.getId());
+        return loanBook;
     }
 
     @Override
     public LoanBook Update(LoanBook loanBook) throws Exception {
         return Cretae(loanBook);
+    }
+
+    @Override
+    public LoanBook findId(String id) {
+        return loanBooks.get(id);
     }
 
 

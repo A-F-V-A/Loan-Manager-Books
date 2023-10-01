@@ -13,4 +13,6 @@ public interface ICrudLoanBook <Entity> extends ICreate<Entity>, IDeleted<Entity
     HashMap<String,Entity> ToList();
     List<Entity> HashMapToList();
     Entity Update(Entity entity) throws Exception;
+
+    Entity findId(String id);
 }

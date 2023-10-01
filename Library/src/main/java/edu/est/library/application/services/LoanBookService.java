@@ -34,6 +34,11 @@ public class LoanBookService implements ILoanBookService<LoanBook> {
     }
 
     @Override
+    public LoanBook findId(String id) {
+        return service.findId(id);
+    }
+
+    @Override
     public HashMap<String,LoanBook> ToList() {
         return service.ToList();
     }

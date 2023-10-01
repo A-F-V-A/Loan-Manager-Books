@@ -14,6 +14,7 @@ public class Library  {
         Books = new HashSet<Book>();
         Students = new TreeSet<Student>();
         Librarians = new HashSet<Librarian>();
+        LoanBooks = new HashMap<String, LoanBook>();
     }
     public HashSet<Book> getBooks() {
         return Books;

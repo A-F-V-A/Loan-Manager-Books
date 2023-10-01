@@ -1,22 +1,23 @@
 package edu.est.library.infrastructure.db;
-import edu.est.library.domain.models.Book;
-import edu.est.library.domain.models.Librarian;
-import edu.est.library.domain.models.Library;
-import edu.est.library.domain.models.Student;
+import edu.est.library.domain.models.*;
 
 import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.UUID;
 
 public class LibraryDB  {
     private Library library;
     private BookDb books;
     private StudentDb student;
     private LibrarianDb librarian;
+    private LoanBookDb loanBookDb;
     public LibraryDB() {
         library = new Library();
         books = new BookDb(library.getBooks());
         student = new StudentDb(library.getStudents());
         librarian = new LibrarianDb(library.getLibrarians());
+        loanBookDb = new LoanBookDb(library.getLoanBooks());
         dataInit();
     }
     public void dataInit()  {
@@ -148,6 +149,86 @@ public class LibraryDB  {
             librarian.Cretae(librarian15);
 
 
+            /* loanBookDb */
+
+
+            /* loanBookDb ONE */
+            book6.setQuantity(10);
+            book2.setQuantity(4);
+            book3.setQuantity(6);
+
+
+            LoanBook loanOne = new LoanBook(student10,new Date(122, 2, 15),librarian1);
+
+
+            BookLoanDetail datailOne = new BookLoanDetail(book6, new Date(122, 2, 15),"Book with cover defects",loanOne.getIdUUID());
+            book6.Quantity(1);
+
+            BookLoanDetail datailTwo = new BookLoanDetail(book2, new Date(122, 4, 18),"No defects",loanOne.getIdUUID());
+            book2.Quantity(1);
+
+            BookLoanDetail datailThree = new BookLoanDetail(book3, new Date(122, 6, 15),"Sheet 15 is missing",loanOne.getIdUUID());
+            book3.Quantity(1);
+
+            loanOne.addDetails(datailOne,datailTwo,datailThree);
+
+
+            loanBookDb.Cretae(loanOne);
+
+
+            /* loanBookDb two */
+
+            book1.setQuantity(6);
+            book7.setQuantity(2);
+            book8.setQuantity(3);
+
+
+            LoanBook loanTwo = new LoanBook(student5,new Date(122, 5, 5),librarian6);
+
+
+            BookLoanDetail datailFor = new BookLoanDetail(book1, new Date(122, 9, 20),"Book with cover defects",loanTwo.getIdUUID());
+            book1.Quantity(1);
+
+            BookLoanDetail datailFive = new BookLoanDetail(book7, new Date(123, 3, 11),"No defects",loanTwo.getIdUUID());
+            book7.Quantity(1);
+
+            BookLoanDetail datailSix = new BookLoanDetail(book8, new Date(123, 4, 8),"Sheet 15 is missing",loanTwo.getIdUUID());
+            book8.Quantity(1);
+
+            loanTwo.addDetails(datailFor,datailFive,datailSix);
+
+
+            loanBookDb.Cretae(loanTwo);
+
+
+
+            /* loanBookDb Three */
+
+            book15.setQuantity(2);
+            book14.setQuantity(3);
+            book13.setQuantity(4);
+
+
+            LoanBook loanThree = new LoanBook(student20,new Date(123, 2, 4),librarian15);
+
+
+            BookLoanDetail datailSeven = new BookLoanDetail(book15, new Date(122, 9, 20),"Book with cover defects",loanThree.getIdUUID());
+            book15.Quantity(1);
+
+            BookLoanDetail datailEight = new BookLoanDetail(book14, new Date(123, 3, 11),"No defects",loanThree.getIdUUID());
+            book14.Quantity(1);
+
+            BookLoanDetail datailNine = new BookLoanDetail(book13, new Date(123, 4, 8),"Sheet 15 is missing",loanThree.getIdUUID());
+            book13.Quantity(1);
+
+            loanThree.addDetails(datailSeven,datailEight,datailNine);
+
+
+            loanBookDb.Cretae(loanThree);
+
+
+
+
         }catch (Exception e){
             System.err.println(e);
         }
@@ -164,5 +245,8 @@ public class LibraryDB  {
     }
     public LibrarianDb getLibrarian() {
         return librarian;
+    }
+    public LoanBookDb getLoanBookDb() {
+        return loanBookDb;
     }
 }

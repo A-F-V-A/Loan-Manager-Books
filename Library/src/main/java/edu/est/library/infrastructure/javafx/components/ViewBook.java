@@ -70,6 +70,7 @@ public class ViewBook implements IEventTableView<Book> {
         AnchorPane.setBottomAnchor(tableView, 0.0);
 
         EventTableView(tableView);
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         return tableView;
     }
     public void AddBook(VBox element){
@@ -274,5 +275,9 @@ public class ViewBook implements IEventTableView<Book> {
                 }
             }
         }
+    }
+
+    public int lendBook(Book book) throws Exception {
+        return service.lendBook(book);
     }
 }

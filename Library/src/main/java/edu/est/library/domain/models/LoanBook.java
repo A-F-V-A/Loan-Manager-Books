@@ -9,22 +9,29 @@ public class LoanBook {
     private Student LoanStudent;
     private Librarian LoanLibrarian;
     private Date LoanDate;
+
     private HashMap<LoanBook, TreeSet<BookLoanDetail>> BookLoanDetails;
 
     public LoanBook(Student student, Date loanDate,Librarian librarian){
         LoanStudent = student;
         LoanDate = loanDate;
         LoanLibrarian = librarian;
-        BookLoanDetails = new HashMap<LoanBook, TreeSet<BookLoanDetail>>();
         generateID(
                 LoanStudent.toString(),
-                LoanLibrarian.toString(),
-                LoanDate.toString()
+                LoanLibrarian.toString()
         );
+        BookLoanDetails = new HashMap<LoanBook, TreeSet<BookLoanDetail>>();
+        BookLoanDetails.put(this,new TreeSet<BookLoanDetail>());
+
+
     }
 
     public String getId() {
         return id.toString();
+    }
+
+    public UUID getIdUUID() {
+        return id;
     }
 
     public void setId(UUID id) {
@@ -59,9 +66,19 @@ public class LoanBook {
         return BookLoanDetails;
     }
 
-    public void setBookLoanDetails(HashMap<LoanBook, TreeSet<BookLoanDetail>> bookLoanDetails) {
-        BookLoanDetails = bookLoanDetails;
+    public TreeSet<BookLoanDetail> Details() {
+        return BookLoanDetails.get(this);
     }
+
+    public void addDetails(BookLoanDetail... details) {
+        TreeSet<BookLoanDetail> Details = BookLoanDetails.get(this);
+
+        Details.addAll(Arrays.asList(details));
+
+        BookLoanDetails.put(this, Details);
+    }
+
+
 
     private void generateID(String... value){
         StringBuilder keys = new StringBuilder();
@@ -84,11 +101,15 @@ public class LoanBook {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof LoanBook loanBook)) return false;
-        return Objects.equals(id, loanBook.id) && Objects.equals(LoanStudent, loanBook.LoanStudent) && Objects.equals(LoanLibrarian, loanBook.LoanLibrarian) && Objects.equals(LoanDate, loanBook.LoanDate) && Objects.equals(BookLoanDetails, loanBook.BookLoanDetails);
+        LoanBook otherLoanBook = (LoanBook) o;
+        return id.toString().equals(otherLoanBook.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, LoanStudent, LoanLibrarian, LoanDate, BookLoanDetails);
+        int hash = 31;
+        hash = hash * id.toString().hashCode() + LoanStudent.toString().hashCode() + LoanLibrarian.toString().hashCode();
+        return hash;
     }
+
 }

@@ -4,6 +4,7 @@ import edu.est.library.domain.models.Book;
 import edu.est.library.infrastructure.db.LibraryDB;
 import edu.est.library.infrastructure.javafx.components.ViewBook;
 import edu.est.library.infrastructure.javafx.components.ViewLibraian;
+import edu.est.library.infrastructure.javafx.components.ViewLoanBook;
 import edu.est.library.infrastructure.javafx.components.ViewStudent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,9 +25,13 @@ public class LibraryController implements Initializable {
     private ViewStudent viewStudent;
     private  ViewLibraian viewLibraian;
 
+    private ViewLoanBook viewLoanBook;
+
     private String CurrentView;
     @FXML
     public Button B_add;
+    @FXML
+    public Button B_view_detail;
     @FXML
     public Button B_deleted;
     @FXML
@@ -43,6 +48,7 @@ public class LibraryController implements Initializable {
         viewBook = new ViewBook(library.getBooks());
         viewStudent = new ViewStudent(library.getStudent());
         viewLibraian = new ViewLibraian(library.getLibrarian());
+        viewLoanBook = new ViewLoanBook(library.getLoanBookDb(),viewBook,viewStudent,viewLibraian,container_table,CurrentView);
     }
 
     /** Menu **/
@@ -75,8 +81,8 @@ public class LibraryController implements Initializable {
     @FXML
     public void LoanManagement(ActionEvent event){
         CleanView();
-       // container_inputs.getChildren().add(ViewLibraian.containerInputs());
-       // container_table.getChildren().add(viewLibraian.TableViewLibrarian());
+        container_inputs.getChildren().add(viewLoanBook.containerInputs(container_inputs));
+        container_table.getChildren().add(viewLoanBook.TableViewLoanBook());
         L_title_view.setText("Loan Management");
         CurrentView = "LoanManagement";
     }
@@ -87,6 +93,7 @@ public class LibraryController implements Initializable {
         if(CurrentView.equals("AddClientView")) viewStudent.Addstudent(container_inputs);
         else if(CurrentView.equals("AddBookView")) viewBook.AddBook(container_inputs);
         else if(CurrentView.equals("AddEmployee")) viewLibraian.AddLibrarian(container_inputs);
+        else if(CurrentView.equals("LoanManagement"))  viewLoanBook.CreateLoad();
     }
 
     @FXML
@@ -97,6 +104,7 @@ public class LibraryController implements Initializable {
         if(CurrentView.equals("AddClientView")) viewStudent.Update(container_inputs,flag);
         else if(CurrentView.equals("AddBookView"))  viewBook.Update(container_inputs,flag);
         else if(CurrentView.equals("AddEmployee")) viewLibraian.Update(container_inputs,flag);
+        else if(CurrentView.equals("ViewDetail")) viewLoanBook.UpdateLoad();
 
         if(!flag) btn.getStyleClass().add("UpdateView");
         else btn.getStyleClass().remove("UpdateView");
@@ -107,7 +115,16 @@ public class LibraryController implements Initializable {
         if(CurrentView.equals("AddClientView")) viewStudent.Delete();
         else if(CurrentView.equals("AddBookView")) viewBook.Delete();
         else if(CurrentView.equals("AddEmployee")) viewLibraian.Delete();
+        else if(CurrentView.equals("LoanManagement")) viewLoanBook.deletedLoanBook();
+        else if(CurrentView.equals("ViewDetail")) viewLoanBook.deletedBookLoanDetail();
     }
+
+    @FXML
+    public void ViewDetail(ActionEvent event){
+        CurrentView = "ViewDetail";
+        container_table.getChildren().add(viewLoanBook.TableViewLoanBookDetail());
+    }
+
 
 
     /** Utilitarian **/

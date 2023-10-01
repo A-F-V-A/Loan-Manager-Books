@@ -2,6 +2,7 @@ module edu.est.library {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
+    requires java.sql;
 
     opens  edu.est.library.infrastructure.javafx to javafx.fmxl;
     exports edu.est.library.infrastructure.javafx;

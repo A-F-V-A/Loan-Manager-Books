@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="570.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.est.library.infrastructure.javafx.controllers.LibraryController">
+<AnchorPane prefHeight="570.0" prefWidth="1108.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.est.library.infrastructure.javafx.controllers.LibraryController">
    <children>
       <VBox fx:id="menu" layoutY="-3.0" prefHeight="570.0" prefWidth="240.0" style="-fx-background-color: #0a1c34;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -81,13 +81,13 @@
       </VBox>
       <HBox layoutX="248.0" layoutY="19.0" prefHeight="44.0" prefWidth="634.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
-            <Label fx:id="L_title_view" prefHeight="44.0" prefWidth="224.0" text="Book Management">
+            <Label fx:id="L_title_view" prefHeight="44.0" prefWidth="287.0" text="Book Management">
                <font>
                   <Font name="Calibri" size="24.0" />
                </font>
             </Label>
-            <Pane prefHeight="44.0" prefWidth="289.0" />
-            <HBox alignment="CENTER" prefHeight="44.0" prefWidth="252.0">
+            <Pane prefHeight="44.0" prefWidth="294.0" />
+            <HBox alignment="CENTER">
                <children>
                   <Button fx:id="B_add" mnemonicParsing="false" onAction="#AddRegister" prefHeight="23.0" prefWidth="90.0" styleClass="btn-crud" text="Create" />
                   <Button fx:id="B_update" mnemonicParsing="false" onAction="#Update" prefHeight="23.0" prefWidth="90.0" text="Update">
@@ -108,11 +108,32 @@
                         <String fx:value="btn-crud-delete" />
                      </styleClass>
                   </Button>
+                  <Button fx:id="B_view_detail" mnemonicParsing="false" onAction="#ViewDetail" prefHeight="23.0" prefWidth="90.0" text="Detail">
+                     <styleClass>
+                        <String fx:value="btn-crud" />
+                        <String fx:value="btn-crud-detail" />
+                     </styleClass>
+                     <HBox.margin>
+                        <Insets left="4.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </HBox>
          </children>
       </HBox>
-      <VBox fx:id="container_inputs" layoutX="248.0" layoutY="63.0" prefHeight="88.0" prefWidth="634.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="10.0" />
+      <VBox fx:id="container_inputs" layoutX="248.0" layoutY="63.0" prefHeight="88.0" prefWidth="634.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="10.0">
+         <children>
+            <HBox prefHeight="88.0" prefWidth="226.0">
+               <children>
+                  <HBox prefHeight="88.0" prefWidth="226.0" />
+                  <HBox prefHeight="88.0" prefWidth="226.0" />
+                  <HBox prefHeight="88.0" prefWidth="226.0" />
+               </children>
+            </HBox>
+         </children></VBox>
       <AnchorPane fx:id="container_table" layoutX="250.0" layoutY="356.0" prefHeight="287.0" prefWidth="678.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0" />
    </children>
 </AnchorPane>

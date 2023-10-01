@@ -60,6 +60,7 @@ public class ViewLibraian implements IEventTableView<Librarian> {
         AnchorPane.setBottomAnchor(tableView, 0.0);
 
         EventTableView(tableView);
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         return tableView;
     }
 

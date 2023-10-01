@@ -1,6 +1,8 @@
 package edu.est.library.infrastructure.javafx.components;
 
 import edu.est.library.domain.models.Book;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
@@ -35,6 +37,24 @@ public class Components {
         datePicker.setUserData(name);
 
         container.getChildren().addAll(title, datePicker);
+
+        return container;
+    }
+
+    public static VBox containerButton(String name, EventHandler<ActionEvent> btnActionHandler) {
+        VBox container = new VBox();
+        container.getStyleClass().add("custom-vbox");
+
+        Label title = new Label("No selection");
+        title.getStyleClass().add("custom-label-selection");
+        title.setUserData("label" + name);
+
+        Button btn = new Button(name);
+        btn.getStyleClass().add("btn-select");
+        btn.setUserData(name);
+        btn.setOnAction(btnActionHandler);
+
+        container.getChildren().addAll(title, btn);
 
         return container;
     }
